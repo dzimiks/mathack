@@ -31,11 +31,113 @@ export class ExploreComponent implements OnInit {
     // Map Centers
     let republicSquareCoords = new google.maps.LatLng(44.816186, 20.460856);
 
+    let mapStyle = [
+      {
+        "featureType": "all",
+        "elementType": "all",
+        "stylers": [
+          {
+            "saturation": "32"
+          },
+          {
+            "lightness": "-3"
+          },
+          {
+            "visibility": "on"
+          },
+          {
+            "weight": "1.18"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "landscape",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "landscape.man_made",
+        "elementType": "all",
+        "stylers": [
+          {
+            "saturation": "-70"
+          },
+          {
+            "lightness": "14"
+          }
+        ]
+      },
+      {
+        "featureType": "poi",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "road",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "transit",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+          {
+            "saturation": "100"
+          },
+          {
+            "lightness": "-14"
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          },
+          {
+            "lightness": "12"
+          }
+        ]
+      }
+    ];
+
     // Map 1
     let options = {
       center: republicSquareCoords,
-      zoom: 10,
-      // styles: darkModeStyle
+      zoom: 12,
+      // styles: mapStyle
     };
 
     map = new google.maps.Map(document.getElementById('googleMap'), options);
@@ -123,6 +225,8 @@ export class ExploreComponent implements OnInit {
     });
 
     let markerCluster = new MarkerClusterer(map, markers, { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+    map.setCenter(locations[0]);
+    map.setZoom(15);
     // return markers;
   }
 
