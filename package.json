@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/dzimiks/mathack/issues"
   },
-  "homepage": "https://github.com/dzimiks/mathack#readme"
+  "homepage": "https://github.com/dzimiks/mathack#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
