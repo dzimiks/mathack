@@ -3,15 +3,14 @@
   <div class="container">
     <div class="btn-group" dropdown>
       <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle waves-light" mdbWavesEffect>
-        Choose City
+        {{ city }}
       </button>
 
       <div class="dropdown-menu dropdown-primary">
-        <p class="dropdown-item">Belgrade</p>
-        <p class="dropdown-item">Nis</p>
-        <p class="dropdown-item">Kragujevac</p>
-        <div class="divider dropdown-divider"></div>
-        <p class="dropdown-item">Visegrad</p>
+        <a class="dropdown-item" (click)="selectCity('Belgrade')">Belgrade</a>
+        <a class="dropdown-item" (click)="selectCity('Nis')">Nis</a>
+        <a class="dropdown-item" (click)="selectCity('Kragujevac')">Kragujevac</a>
+        <a class="dropdown-item" (click)="selectCity('Visegrad')">Visegrad</a>
       </div>
     </div>
 
@@ -105,5 +104,5 @@
 
   </div>
 
-  <button type="button" class="btn btn-lg btn-primary waves-light" mdbWavesEffect>Submit</button>
+  <button type="button" class="btn btn-lg btn-primary waves-light" mdbWavesEffect (click)="submit()">Submit</button>
 </div>

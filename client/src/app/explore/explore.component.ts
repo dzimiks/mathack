@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/compiler/src/core';
+import { HttpClient } from '@angular/common/http';
+
+declare var initMap: any;
 
 @Component({
   selector: 'app-explore',
@@ -15,15 +18,41 @@ export class ExploreComponent implements OnInit {
   natureSlider: any = 50;
   nightlifeSlider: any = 50;
 
+  city: String = "Choose city";
+
   private config = { hour: 7, minute: 15, meriden: 'PM', format: 12 };
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
 
   sliderChange() {
     console.log(this.sportSlider);
+    new initMap();
+  }
+
+  selectCity(newCity) {
+    this.city = newCity;
+  }
+
+  submit() {
+    let info = {
+      city: this.city,
+      sportWeight: this.sportSlider / 100.0,
+      nightlifeWeight: this.nightlifeSlider / 100.0,
+      natureWeight: this.natureSlider / 100.0,
+      historicalWeight: this.historicalSlider / 100.0
+    }
+    console.log(info.city);
+    this.getPath(info).subscribe((path) => {
+      console.log("rezultat");
+      console.log(path);
+    });
+  }
+
+  getPath(data) {
+    return this.http.post("http://localhost:8080/api/explore", data);
   }
 
 }
