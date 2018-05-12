@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/compiler/src/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 declare var initMap: any;
 
@@ -28,8 +29,6 @@ export class ExploreComponent implements OnInit {
   }
 
   sliderChange() {
-    console.log(this.sportSlider);
-    new initMap();
   }
 
   selectCity(newCity) {
@@ -45,13 +44,15 @@ export class ExploreComponent implements OnInit {
       historicalWeight: this.historicalSlider / 100.0
     }
     console.log(info.city);
-    this.getPath(info).subscribe((path) => {
-      console.log("rezultat");
-      console.log(path);
+    this.getPath(info).subscribe((res) => {
+      let path = res.path;
+      path.forEach(coord => {
+        console.log(coord.lat + " " + coord.lng);
+      });
     });
   }
 
-  getPath(data) {
+  getPath(data): Observable<any>{
     return this.http.post("http://localhost:8080/api/explore", data);
   }
 
