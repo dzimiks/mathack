@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ExploreComponent implements OnInit {
   lat: number = 51.678418;
   lng: number = 7.809007;
-  
+  private config = { hour: 7, minute: 15, meriden: 'PM', format: 12 };
+
   constructor() { }
 
   ngOnInit() {

@@ -4,9 +4,9 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { BarRatingModule } from "ngx-bar-rating";
 import { CommonModule } from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -41,7 +41,6 @@ const appRoutes: Routes = [
     BrowserModule,
     CommonModule,
     FormsModule,
-    BarRatingModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyACesQpuNYcjMJX2x4WGY4CaLD1AKBFtqs'
     }),

@@ -1,5 +1,109 @@
-<div class="container">
-    <agm-map [latitude]="lat" [longitude]="lng">
-        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-    </agm-map>
+<div class="text-center py-5 cards-container">
+
+  <div class="container">
+    <div class="btn-group" dropdown>
+      <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle waves-light" mdbWavesEffect>
+        Choose City
+      </button>
+
+      <div class="dropdown-menu dropdown-primary">
+        <p class="dropdown-item">Belgrade</p>
+        <p class="dropdown-item">Nis</p>
+        <p class="dropdown-item">Kragujevac</p>
+        <div class="divider dropdown-divider"></div>
+        <p class="dropdown-item">Visegrad</p>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="card-layout">
+    <div class="row">
+
+      <div class="col-md-3 main-card">
+        <div class="card">
+
+          <!--Card image-->
+          <img class="img-fluid" src="https://media.timeout.com/images/103550412/image.jpg" alt="Card image cap">
+
+          <!--Card content-->
+          <div class="card-body">
+            <!--Title-->
+            <h4 class="card-title">Nightlife</h4>
+            <!--Text-->
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="slidecontainer">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-md-3 main-card">
+        <div class="card">
+
+          <!--Card image-->
+          <img class="img-fluid" src="https://i.pinimg.com/originals/3e/99/38/3e993812ef62af0471f9741d642a3943.jpg">
+
+          <!--Card content-->
+          <div class="card-body">
+            <!--Title-->
+            <h4 class="card-title">Sport</h4>
+            <!--Text-->
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="slidecontainer">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-md-3 main-card">
+        <div class="card">
+
+          <!--Card image-->
+          <img class="img-fluid" src="https://images.oyster.com/articles/18446-yellowstone.jpg">
+
+          <!--Card content-->
+          <div class="card-body">
+            <!--Title-->
+            <h4 class="card-title">Nature</h4>
+            <!--Text-->
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="slidecontainer">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-md-3 main-card">
+        <div class="card">
+
+          <!--Card image-->
+          <img class="img-fluid" src="http://www.oris.hr/files/g/1-389/540x360-9/zg-u-sredistu-2.jpg" alt="Card image cap">
+
+          <!--Card content-->
+          <div class="card-body">
+            <!--Title-->
+            <h4 class="card-title">Historical</h4>
+            <!--Text-->
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="slidecontainer">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <button type="button" class="btn btn-lg btn-primary waves-light" mdbWavesEffect>Submit</button>
 </div>
