@@ -1,13 +1,12 @@
 <!-- Main -->
-<div class="view">
+<div class="header-image view">
   <div class="full-bg-img">
     <div class="mask rgba-black-light flex-center">
       <div class="container text-center white-text">
         <div class="white-text text-center wow fadeInUp">
-          <h2>This Navbar is fixed</h2>
-          <h5>It will always stay visible on the top, even when you scroll down</h5>
+          <h1>MatHack Assistant</h1>
           <br>
-          <p>Full page intro with background image will be always displayed in full screen mode, regardless of device </p>
+          <h3>Find all you need. Explore yourself.</h3>
         </div>
       </div>
     </div>
@@ -29,7 +28,7 @@
     <div class="card-layout">
       <div class="row">
 
-        <div class="col-md-4 main-card">
+        <div class="col-md-3 main-card">
           <div class="card">
 
             <!--Card image-->
@@ -47,7 +46,7 @@
           </div>
         </div>
 
-        <div class="col-md-4 main-card">
+        <div class="col-md-3 main-card">
           <div class="card">
 
             <!--Card image-->
@@ -65,7 +64,25 @@
           </div>
         </div>
 
-        <div class="col-md-4 main-card">
+        <div class="col-md-3 main-card">
+          <div class="card">
+
+            <!--Card image-->
+            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg" alt="Card image cap">
+
+            <!--Card content-->
+            <div class="card-body">
+              <!--Title-->
+              <h4 class="card-title">Card title</h4>
+              <!--Text-->
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary waves-light" mdbWavesEffect>Button</a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-md-3 main-card">
           <div class="card">
 
             <!--Card image-->
@@ -84,6 +101,52 @@
         </div>
 
       </div>
+
+    </div>
+
+    <!-- Carousel -->
+    <div class="carousel">
+
+      <!--Carousel Wrapper-->
+      <mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [animation]="'fade'">
+        <!--First slide-->
+        <mdb-slide>
+          <div class="view">
+            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg" alt="First slide">
+            <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Light mask</h3>
+            <p>First text</p>
+          </div>
+        </mdb-slide>
+        <!--/First slide-->
+        <!--Second slide-->
+        <mdb-slide>
+          <div class="view">
+            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg" alt="Second slide">
+            <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Strong mask</h3>
+            <p>Secondary text</p>
+          </div>
+        </mdb-slide>
+        <!--/Second slide-->
+        <!--Third slide-->
+        <mdb-slide>
+          <div class="view">
+            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg" alt="Third slide">
+            <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Slight mask</h3>
+            <p>Third text</p>
+          </div>
+        </mdb-slide>
+        <!--/Third slide-->
+      </mdb-carousel>
+      <!--/.Carousel Wrapper-->
 
     </div>
 
