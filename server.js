@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser')
-const session    = require('express-session')
+const session = require('express-session')
 const routesApi = require('./api/routes/index');
 
 // use angular output folder
@@ -21,7 +21,7 @@ app.get('*', (req, res) => {
 });
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
