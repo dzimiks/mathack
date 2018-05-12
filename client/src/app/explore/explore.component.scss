@@ -6,7 +6,7 @@
 .main-card {
     margin: 30px 0;
 }
-  
+
 .cards-container {
     margin: 20px 40px;
 }
@@ -19,7 +19,7 @@
     -webkit-appearance: none;
     width: 100%;
     height: 15px;
-    border-radius: 5px;   
+    border-radius: 5px;
     background: #d3d3d3;
     outline: none;
     opacity: 0.7;
@@ -32,7 +32,7 @@
     appearance: none;
     width: 25px;
     height: 25px;
-    border-radius: 50%; 
+    border-radius: 50%;
     background: #2776f7;
     cursor: pointer;
 }
@@ -43,4 +43,12 @@
     border-radius: 50%;
     background: #4CAF50;
     cursor: pointer;
+}
+
+#googleMap {
+  width: 90%;
+  height: 500px;
+  margin: 30px auto;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 5px;
 }
