@@ -12,7 +12,6 @@ exports.explore = function (req, res) {
     let nightlifePlaces = [];
     let historicalPlaces = [];
     let naturePlaces = [];
-
     let result = [];
     let cnt = 0;
     for (let i = 0; i < sportTypes.length; i++) {
@@ -115,5 +114,14 @@ exports.predict = function(req, sportPlaces, historicPlaces, naturePlaces, night
     for (let i = 0; i < result.length; i++) {
         result[i] = result[i].location;
     }
+
+    googleMaps.findDistanceMatrix(result, result, function(err, matrix) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(matrix);
+        }
+    });
+
     return result;
 }

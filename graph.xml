@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<travellingSalesmanProblemInstance>
+<name>TSP</name>
+<source>TSPLIB</source>
+<description>Google maps TSP</description>
+<doublePrecision>5</doublePrecision>
+<graph>
+<vertex>
+<edge cost="0">0</edge>
+<edge cost="615">1</edge>
+<edge cost="830">2</edge>
+<edge cost="322">3</edge>
+<edge cost="267">4</edge>
+<edge cost="413">5</edge>
+<edge cost="322">6</edge>
+<edge cost="440">7</edge>
+<edge cost="322">8</edge>
+<edge cost="267">9</edge>
+</vertex>
+<vertex>
+<edge cost="657">0</edge>
+<edge cost="0">1</edge>
+<edge cost="1320">2</edge>
+<edge cost="875">3</edge>
+<edge cost="657">4</edge>
+<edge cost="589">5</edge>
+<edge cost="898">6</edge>
+<edge cost="644">7</edge>
+<edge cost="875">8</edge>
+<edge cost="657">9</edge>
+</vertex>
+<vertex>
+<edge cost="892">0</edge>
+<edge cost="1231">1</edge>
+<edge cost="0">2</edge>
+<edge cost="619">3</edge>
+<edge cost="908">4</edge>
+<edge cost="961">5</edge>
+<edge cost="618">6</edge>
+<edge cost="1206">7</edge>
+<edge cost="619">8</edge>
+<edge cost="908">9</edge>
+</vertex>
+<vertex>
+<edge cost="420">0</edge>
+<edge cost="784">1</edge>
+<edge cost="660">2</edge>
+<edge cost="0">3</edge>
+<edge cost="289">4</edge>
+<edge cost="342">5</edge>
+<edge cost="0">6</edge>
+<edge cost="760">7</edge>
+<edge cost="0">8</edge>
+<edge cost="289">9</edge>
+</vertex>
+<vertex>
+<edge cost="284">0</edge>
+<edge cost="654">1</edge>
+<edge cost="907">2</edge>
+<edge cost="283">3</edge>
+<edge cost="0">4</edge>
+<edge cost="203">5</edge>
+<edge cost="307">6</edge>
+<edge cost="535">7</edge>
+<edge cost="283">8</edge>
+<edge cost="0">9</edge>
+</vertex>
+<vertex>
+<edge cost="417">0</edge>
+<edge cost="619">1</edge>
+<edge cost="999">2</edge>
+<edge cost="375">3</edge>
+<edge cost="203">4</edge>
+<edge cost="0">5</edge>
+<edge cost="398">6</edge>
+<edge cost="500">7</edge>
+<edge cost="375">8</edge>
+<edge cost="203">9</edge>
+</vertex>
+<vertex>
+<edge cost="451">0</edge>
+<edge cost="815">1</edge>
+<edge cost="660">2</edge>
+<edge cost="0">3</edge>
+<edge cost="320">4</edge>
+<edge cost="374">5</edge>
+<edge cost="0">6</edge>
+<edge cost="791">7</edge>
+<edge cost="0">8</edge>
+<edge cost="320">9</edge>
+</vertex>
+<vertex>
+<edge cost="493">0</edge>
+<edge cost="633">1</edge>
+<edge cost="1115">2</edge>
+<edge cost="672">3</edge>
+<edge cost="500">4</edge>
+<edge cost="432">5</edge>
+<edge cost="672">6</edge>
+<edge cost="0">7</edge>
+<edge cost="672">8</edge>
+<edge cost="500">9</edge>
+</vertex>
+<vertex>
+<edge cost="420">0</edge>
+<edge cost="784">1</edge>
+<edge cost="660">2</edge>
+<edge cost="0">3</edge>
+<edge cost="289">4</edge>
+<edge cost="342">5</edge>
+<edge cost="0">6</edge>
+<edge cost="760">7</edge>
+<edge cost="0">8</edge>
+<edge cost="289">9</edge>
+</vertex>
+<vertex>
+<edge cost="284">0</edge>
+<edge cost="654">1</edge>
+<edge cost="907">2</edge>
+<edge cost="283">3</edge>
+<edge cost="0">4</edge>
+<edge cost="203">5</edge>
+<edge cost="307">6</edge>
+<edge cost="535">7</edge>
+<edge cost="283">8</edge>
+<edge cost="0">9</edge>
+</vertex>
+</graph>
+</travellingSalesmanProblemInstance>

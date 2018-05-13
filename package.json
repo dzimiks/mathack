@@ -18,8 +18,10 @@
   "homepage": "https://github.com/dzimiks/mathack#readme",
   "dependencies": {
     "@google/maps": "^0.4.6",
+    "algorithmbox": "^1.0.1",
     "array-unique": "^0.3.2",
     "express": "^4.16.3",
-    "express-session": "^1.15.6"
+    "express-session": "^1.15.6",
+    "xml-writer": "^1.7.0"
   }
 }

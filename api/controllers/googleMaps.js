@@ -27,6 +27,34 @@ exports.findPlaces = function (city, type, fn) {
                 }
             });
         } else {
+            console.log('error');
+            fn(err, null);
+        }
+    });
+};
+
+exports.findDistanceMatrix = function (origins, destinations, fn) {
+    console.log(origins);
+    googleMapsClient.distanceMatrix({
+        origins: origins,
+        destinations: destinations
+    }, function (err, res) {
+        console.log(res.json.rows[0].elements[1].duration.value);
+        if (!err) {
+            let matrix = new Array(origins.length);
+            for (let i = 0; i < origins.length; i++) {
+                matrix[i] = new Array(destinations.length);
+            }
+            for (let i = 0; i < origins.length; i++) {
+                for (let j = 0; j < destinations.length; j++) {
+                    matrix[i][j] = res.json.rows[i].elements[j].duration.value;
+                }
+            }
+            console.log("dosao");
+            console.log(matrix);
+            fn(err, matrix);
+        } else {
+            console.log('error');
             fn(err, null);
         }
     });
