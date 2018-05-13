@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Input } from '@angular/compiler/src/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
@@ -15,13 +14,16 @@ declare var map: any;
 export class ExploreComponent implements OnInit {
   lat: number = 51.678418;
   lng: number = 7.809007;
+  directionsDisplay: any;
+  directionsService: any;
+  locations: object[] = [];
 
   sportSlider: any = 50;
   historicalSlider: any = 50;
   natureSlider: any = 50;
   nightlifeSlider: any = 50;
 
-  city: String = "Choose city";
+  city: String = "Belgrade";
 
   private config = { hour: 7, minute: 15, meriden: 'PM', format: 12 };
 
@@ -31,108 +33,6 @@ export class ExploreComponent implements OnInit {
     // Map Centers
     let republicSquareCoords = new google.maps.LatLng(44.816186, 20.460856);
 
-    let mapStyle = [
-      {
-        "featureType": "all",
-        "elementType": "all",
-        "stylers": [
-          {
-            "saturation": "32"
-          },
-          {
-            "lightness": "-3"
-          },
-          {
-            "visibility": "on"
-          },
-          {
-            "weight": "1.18"
-          }
-        ]
-      },
-      {
-        "featureType": "administrative",
-        "elementType": "labels",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "landscape",
-        "elementType": "labels",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "landscape.man_made",
-        "elementType": "all",
-        "stylers": [
-          {
-            "saturation": "-70"
-          },
-          {
-            "lightness": "14"
-          }
-        ]
-      },
-      {
-        "featureType": "poi",
-        "elementType": "labels",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "road",
-        "elementType": "labels",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "transit",
-        "elementType": "labels",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "water",
-        "elementType": "all",
-        "stylers": [
-          {
-            "saturation": "100"
-          },
-          {
-            "lightness": "-14"
-          }
-        ]
-      },
-      {
-        "featureType": "water",
-        "elementType": "labels",
-        "stylers": [
-          {
-            "visibility": "off"
-          },
-          {
-            "lightness": "12"
-          }
-        ]
-      }
-    ];
-
     // Map 1
     let options = {
       center: republicSquareCoords,
@@ -140,85 +40,13 @@ export class ExploreComponent implements OnInit {
       // styles: mapStyle
     };
 
-    let directionsDisplay = new google.maps.DirectionsRenderer;
-    let directionsService = new google.maps.DirectionsService;
+    this.directionsDisplay = new google.maps.DirectionsRenderer;
+    this.directionsService = new google.maps.DirectionsService;
     map = new google.maps.Map(document.getElementById('googleMap'), options);
-    directionsDisplay.setMap(map);
+    this.directionsDisplay.setMap(map);
 
     // calculateAndDisplayRoute(directionsService, directionsDisplay);
-    calculateAndDisplayRouteWaypoints(directionsService, directionsDisplay);
-
-    function calculateAndDisplayRouteWaypoints(directionsService, directionsDisplay) {
-      let waypts = [
-        {
-          location: {
-            lat: 44.814839769142665,
-            lng: 20.453407048071995
-          },
-          stopover: true
-        },
-        {
-          location: {
-            lat: 44.81680775934,
-            lng: 20.45063476598
-          },
-          stopover: true
-        },
-        {
-          location: {
-            lat: 44.818816,
-            lng: 20.453566
-          },
-          stopover: true
-        },
-        {
-          location: {
-            lat: 44.81260725934,
-            lng: 20.45063473598
-          },
-          stopover: true
-        }
-      ];
-
-      directionsService.route({
-        origin: {
-          lat: 44.816894,
-          lng: 20.457857
-        },
-        destination: {
-          lat: 44.8239429546728,
-          lng: 20.45710078162467
-        },
-        waypoints: waypts,
-        optimizeWaypoints: true,
-        travelMode: 'WALKING'
-      }, function(response, status) {
-        if (status === 'OK') {
-          directionsDisplay.setDirections(response);
-
-          let route = response.routes[0];
-          let geocoded_waypoint = response.geocoded_waypoints[0];
-          let summaryPanel = document.getElementById('directions-panel');
-          summaryPanel.innerHTML = '';
-
-          // For each route, display summary information.
-          for (let i = 0; i < route.legs.length; i++) {
-            let routeSegment = i + 1;
-
-            summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
-              '</b><br>From: ';
-            summaryPanel.innerHTML += route.legs[i].start_address + '<br>To: ';
-            summaryPanel.innerHTML += route.legs[i].end_address + '<br>Distance: ';
-            summaryPanel.innerHTML += route.legs[i].distance.text + '<br>Duration: ';
-            summaryPanel.innerHTML += route.legs[i].duration.text + '<br>Summary: ';
-            summaryPanel.innerHTML += route.summary + '<br>Place ID: ';
-            summaryPanel.innerHTML += geocoded_waypoint.place_id + '<br><br>';
-          }
-        } else {
-          window.alert('Directions request failed due to ' + status);
-        }
-      });
-    }
+    // this.calculateAndDisplayRouteWaypoints(directionsService, directionsDisplay);
 
     //   <!--Card content-->
     // <div class="card-body">
@@ -318,9 +146,7 @@ export class ExploreComponent implements OnInit {
       });
     }
 
-    const locations = [
-
-    ];
+    // this.calculateAndDisplayRouteWaypoints(directionsService, directionsDisplay);
 
     // let infoWindow = new google.maps.InfoWindow();
 
@@ -359,6 +185,7 @@ export class ExploreComponent implements OnInit {
   }
 
   setMarkers(locations) {
+    this.locations.push(locations);
     const labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
     let markers = locations.map(function(location, i) {
@@ -371,6 +198,8 @@ export class ExploreComponent implements OnInit {
     let markerCluster = new MarkerClusterer(map, markers, { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
     map.setCenter(locations[0]);
     map.setZoom(15);
+
+    // this.calculateAndDisplayRouteWaypoints(this.directionsDisplay, this.directionsService, locations);
     // return markers;
   }
 
@@ -396,8 +225,107 @@ export class ExploreComponent implements OnInit {
         console.log(coord.lat + " " + coord.lng);
       });
 
-      this.setMarkers(path);
+      // this.setMarkers(path);
+      this.calculateAndDisplayRouteWaypoints(this.directionsDisplay, this.directionsService, path);
     });
+
+    // this.calculateAndDisplayRouteWaypoints(this.directionsDisplay, this.directionsService, this.locations);
+  }
+
+  calculateAndDisplayRouteWaypoints(directionsService, directionsDisplay, locations) {
+    let display = this.directionsDisplay;
+    console.log('Locations: ' + locations);
+
+    let origin = locations[0];
+    let dest = locations[locations.length - 1];
+    let waypts = [];
+
+    for (let i = 1; i < locations.length - 1; i++) {
+      waypts.push({
+        location: locations[i],
+        stopover: true
+      });
+    }
+
+    // let waypts = [
+    //   {
+    //     location: {
+    //       lat: 44.814839769142665,
+    //       lng: 20.453407048071995
+    //     },
+    //     stopover: true
+    //   },
+    //   {
+    //     location: {
+    //       lat: 44.81680775934,
+    //       lng: 20.45063476598
+    //     },
+    //     stopover: true
+    //   },
+    //   {
+    //     location: {
+    //       lat: 44.818816,
+    //       lng: 20.453566
+    //     },
+    //     stopover: true
+    //   },
+    //   {
+    //     location: {
+    //       lat: 44.81260725934,
+    //       lng: 20.45063473598
+    //     },
+    //     stopover: true
+    //   }
+    // ];
+
+    this.directionsService.route({
+      // origin: {
+      //   lat: 44.816894,
+      //   lng: 20.457857
+      // },
+      // destination: {
+      //   lat: 44.8239429546728,
+      //   lng: 20.45710078162467
+      // },
+      origin: {
+        lat: origin.lat,
+        lng: origin.lng
+      },
+      destination: {
+        lat: dest.lat,
+        lng: dest.lng
+      },
+      waypoints: waypts,
+      optimizeWaypoints: true,
+      travelMode: 'DRIVING'
+    }, function(response, status) {
+      if (status === 'OK') {
+        display.setDirections(response);
+
+        let route = response.routes[0];
+        let geocoded_waypoint = response.geocoded_waypoints[0];
+        let summaryPanel = document.getElementById('directions-panel');
+        summaryPanel.innerHTML = '';
+
+        // For each route, display summary information.
+        for (let i = 0; i < route.legs.length; i++) {
+          let routeSegment = i + 1;
+
+          summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
+            '</b><br>From: ';
+          summaryPanel.innerHTML += route.legs[i].start_address + '<br>To: ';
+          summaryPanel.innerHTML += route.legs[i].end_address + '<br>Distance: ';
+          summaryPanel.innerHTML += route.legs[i].distance.text + '<br>Duration: ';
+          summaryPanel.innerHTML += route.legs[i].duration.text + '<br>Summary: ';
+          summaryPanel.innerHTML += route.summary + '<br>Place ID: ';
+          summaryPanel.innerHTML += geocoded_waypoint.place_id + '<br><br>';
+        }
+      } else {
+        window.alert('Directions request failed due to ' + status);
+      }
+    });
+
+    this.directionsDisplay = display;
   }
 
   getPath(data): Observable<any>{
