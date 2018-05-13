@@ -17,6 +17,8 @@ export class ExploreComponent implements OnInit {
   directionsDisplay: any;
   directionsService: any;
   locations: object[] = [];
+  optimalRoute: object[] = [];
+  flag: boolean = false;
 
   sportSlider: any = 50;
   historicalSlider: any = 50;
@@ -217,7 +219,7 @@ export class ExploreComponent implements OnInit {
       nightlifeWeight: this.nightlifeSlider / 100.0,
       natureWeight: this.natureSlider / 100.0,
       historicalWeight: this.historicalSlider / 100.0
-    }
+    };
     console.log(info.city);
     this.getPath(info).subscribe((res) => {
       let path = res.path;
@@ -226,16 +228,13 @@ export class ExploreComponent implements OnInit {
       });
 
       // this.setMarkers(path);
+      this.flag = true;
       this.calculateAndDisplayRouteWaypoints(this.directionsDisplay, this.directionsService, path);
     });
-
-    // this.calculateAndDisplayRouteWaypoints(this.directionsDisplay, this.directionsService, this.locations);
   }
 
   calculateAndDisplayRouteWaypoints(directionsService, directionsDisplay, locations) {
     let display = this.directionsDisplay;
-    console.log('Locations: ' + locations);
-
     let origin = locations[0];
     let dest = locations[locations.length - 1];
     let waypts = [];
@@ -247,46 +246,7 @@ export class ExploreComponent implements OnInit {
       });
     }
 
-    // let waypts = [
-    //   {
-    //     location: {
-    //       lat: 44.814839769142665,
-    //       lng: 20.453407048071995
-    //     },
-    //     stopover: true
-    //   },
-    //   {
-    //     location: {
-    //       lat: 44.81680775934,
-    //       lng: 20.45063476598
-    //     },
-    //     stopover: true
-    //   },
-    //   {
-    //     location: {
-    //       lat: 44.818816,
-    //       lng: 20.453566
-    //     },
-    //     stopover: true
-    //   },
-    //   {
-    //     location: {
-    //       lat: 44.81260725934,
-    //       lng: 20.45063473598
-    //     },
-    //     stopover: true
-    //   }
-    // ];
-
     this.directionsService.route({
-      // origin: {
-      //   lat: 44.816894,
-      //   lng: 20.457857
-      // },
-      // destination: {
-      //   lat: 44.8239429546728,
-      //   lng: 20.45710078162467
-      // },
       origin: {
         lat: origin.lat,
         lng: origin.lng
@@ -304,28 +264,84 @@ export class ExploreComponent implements OnInit {
 
         let route = response.routes[0];
         let geocoded_waypoint = response.geocoded_waypoints[0];
-        let summaryPanel = document.getElementById('directions-panel');
-        summaryPanel.innerHTML = '';
+        // let summaryPanel = document.getElementById('directions-panel');
+        // summaryPanel.innerHTML = '';
+
+        // let table = document.getElementById('table-panel');
+        // table.innerHTML = '';
+        //
+        // table.innerHTML += '<br>' +
+        //   '<table class="table table-striped"><br>' +
+        //   '  <thead><br>' +
+        //   '    <tr><br>' +
+        //   '      <th>#</th><br>' +
+        //   '      <th>From</th><br>' +
+        //   '      <th>To</th><br>' +
+        //   '      <th>Distance</th><br>' +
+        //   '      <th>Duration</th><br>' +
+        //   '    </tr><br>' +
+        //   '  </thead><br>' +
+        //   '  <tbody><br>';
+
+        // '    <tr>\n' +
+        // '      <th scope="row">1</th>\n' +
+        // '      <td>Mark</td>\n' +
+        // '      <td>Otto</td>\n' +
+        // '      <td>@mdo</td>\n' +
+        // '    </tr>\n' +
+        // '  </tbody>\n' +
+        // '</table>\n';
 
         // For each route, display summary information.
         for (let i = 0; i < route.legs.length; i++) {
           let routeSegment = i + 1;
 
-          summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
-            '</b><br>From: ';
-          summaryPanel.innerHTML += route.legs[i].start_address + '<br>To: ';
-          summaryPanel.innerHTML += route.legs[i].end_address + '<br>Distance: ';
-          summaryPanel.innerHTML += route.legs[i].distance.text + '<br>Duration: ';
-          summaryPanel.innerHTML += route.legs[i].duration.text + '<br>Summary: ';
-          summaryPanel.innerHTML += route.summary + '<br>Place ID: ';
-          summaryPanel.innerHTML += geocoded_waypoint.place_id + '<br><br>';
+          // summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
+          //   '</b><br>From: ';
+          // summaryPanel.innerHTML += route.legs[i].start_address + '<br>To: ';
+          // summaryPanel.innerHTML += route.legs[i].end_address + '<br>Distance: ';
+          // summaryPanel.innerHTML += route.legs[i].distance.text + '<br>Duration: ';
+          // summaryPanel.innerHTML += route.legs[i].duration.text + '<br>Summary: ';
+          // summaryPanel.innerHTML += route.summary + '<br>Place ID: ';
+          // summaryPanel.innerHTML += geocoded_waypoint.place_id + '<br><br>';
+
+          // table.innerHTML += '<tr><th scope="row">' + routeSegment+ '</th><br>' +
+          //                    '<td>' + route.legs[i].start_address + '</td><br>' +
+          //                    '<td>' + route.legs[i].end_address + '</td><br>' +
+          //                    '<td>' + route.legs[i].distance.text + '</td><br>' +
+          //                    '<td>' + route.legs[i].duration.text + '</td><br>' +
+          //                    '</tr><br>';
+
+          this.optimalRoute.push({
+            start_address: route.legs[i].start_address,
+            end_address: route.legs[i].end_address,
+            distance: route.legs[i].distance.text,
+            duration: route.legs[i].duration.text
+          });
         }
+
+        // let table = document.getElementById('table-panel');
+        // let cnt = 1;
+        // table.innerHTML += '<br><table class="table table-striped"><br><thead><br><tr><br><th>#</th><br><th>From</th><br><th>To</th><br><th>Distance</th><br><th>Duration</th><br></tr><br></thead><br><tbody><br>';
+        //
+        // table.innerHTML += '<tr><th scope="row">' + (cnt++) + '</th><br>' +
+        //                    '<td>' + this.optimalRoute.start_address + '</td><br>' +
+        //                    '<td>' + this.optimalRoute.end_address + '</td><br>' +
+        //                    '<td>' + this.optimalRoute.distance.text + '</td><br>' +
+        //                    '<td>' + this.optimalRoute.duration.text + '</td><br>' +
+        //                    '</tr><br>';
+        //
+        // table.innerHTML += '</tbody><br></table><br>';
       } else {
         window.alert('Directions request failed due to ' + status);
       }
     });
 
     this.directionsDisplay = display;
+  }
+
+  getRoutes() {
+    return this.optimalRoute;
   }
 
   getPath(data): Observable<any>{

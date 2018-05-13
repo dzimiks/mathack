@@ -1,7 +1,10 @@
 <div class="text-center py-5 cards-container">
 
   <div class="container">
-    <div class="btn-group" dropdown>
+
+
+
+    <div class="btn-group" dropdown><p class="h3">Choose city:</p>
       <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle waves-light" mdbWavesEffect>
         {{ city }}
       </button>
@@ -13,36 +16,6 @@
         <a class="dropdown-item" (click)="selectCity('Visegrad')">Visegrad</a>
       </div>
     </div>
-
-    <!--Belgrade-->
-    <!--Cacak-->
-    <!--Jagodina-->
-    <!--Kikinda-->
-    <!--Kraljevo-->
-    <!--Kragujevac-->
-    <!--Krusevac-->
-    <!--Leskovac-->
-    <!--Loznica-->
-    <!--Novi Pazar-->
-    <!--Novi Sad 001.png Novi Sad-->
-    <!--Grb Niša.png Niš-->
-    <!--COA Pancevo.png Pančevo-->
-    <!--Emblem of Pirot.png Pirot-->
-    <!--Grb pozarevca.svg Požarevac-->
-    <!--Priština[1]-->
-    <!--Grb Smedereva.png Smederevo-->
-    <!--Sombor-grb.png Sombor-->
-    <!--Grb sremska mitrovica.svg Sremska Mitrovica-->
-    <!--Subotica-grb.png Subotica-->
-    <!--COA Šabac.png Šabac-->
-    <!--Uzice-grb.png Užice-->
-    <!--Grb Valjeva.png Valjevo-->
-    <!--Mali grb-Vranja.png Vranje-->
-    <!--Vrsac-grb.png Vršac-->
-    <!--Grb Zaječara.png Zaječar-->
-    <!--Zrenjanin-grb.png Zrenjanin-->
-
-
 
   </div>
 
@@ -138,3 +111,23 @@
 
 <div id="googleMap"></div>
 <div id="directions-panel"></div>
+<!--<table class="table table-striped">-->
+  <!--<thead>-->
+  <!--<tr>-->
+    <!--<th>#</th>-->
+    <!--<th>From</th>-->
+    <!--<th>To</th>-->
+    <!--<th>Distance</th>-->
+    <!--<th>Duration</th>-->
+  <!--</tr>-->
+  <!--</thead>-->
+  <!--<tbody>-->
+  <!--<tr [hidden]="!flag" *ngFor="let route of getRoutes(); let i = index">-->
+    <!--<th scope="row">{{ i + 1 }}</th>-->
+    <!--<td>{{ route.start_address }}</td>-->
+    <!--<td>{{ route.end_address }}</td>-->
+    <!--<td>{{ route.distance }}</td>-->
+    <!--<td>{{ route.duration }}</td>-->
+  <!--</tr>-->
+  <!--</tbody>-->
+<!--</table>-->
