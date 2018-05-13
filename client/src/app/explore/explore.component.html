@@ -2,18 +2,23 @@
 
   <div class="container">
 
+    <p class="h3">Insert place</p>
 
+    <div class="btn-group" dropdown>
+      <!--<button dropdownToggle type="button" class="btn btn-primary dropdown-toggle waves-light" mdbWavesEffect>-->
+        <!--{{ city }}-->
+      <!--</button>-->
 
-    <div class="btn-group" dropdown><p class="h3">Choose city:</p>
-      <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle waves-light" mdbWavesEffect>
-        {{ city }}
-      </button>
+      <div class="md-form">
+        <input [(ngModel)]="city" type="text" class="form-control">
+        <label class="active">{{ city }}</label>
+      </div>
 
       <div class="dropdown-menu dropdown-primary">
         <a class="dropdown-item" (click)="selectCity('Belgrade')">Belgrade</a>
         <a class="dropdown-item" (click)="selectCity('Nis')">Nis</a>
         <a class="dropdown-item" (click)="selectCity('Kragujevac')">Kragujevac</a>
-        <a class="dropdown-item" (click)="selectCity('Visegrad')">Visegrad</a>
+        <a class="dropdown-item" (click)="selectCity('Novi Sad')">Novi Sad</a>
       </div>
     </div>
 

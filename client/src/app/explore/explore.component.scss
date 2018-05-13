@@ -52,3 +52,18 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   border-radius: 5px;
 }
+
+label:after {
+  white-space: nowrap;
+  display: none !important;
+}
+
+label.active:after {
+  display: none !important;
+}
+
+md-form.text-danger,
+md-form.text-success {
+  display: none !important;
+  visibility: hidden !important;
+}

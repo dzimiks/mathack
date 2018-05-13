@@ -1,7 +1,7 @@
 var exports = module.exports = {}
 
 var googleMapsClient = require('@google/maps').createClient({
-    key: 'AIzaSyCKF9usR1uRoBmIYxvQUO7DBt01rFyXH9A'
+    key: 'AIzaSyACesQpuNYcjMJX2x4WGY4CaLD1AKBFtqs'
 });
 
 exports.findPlaces = function (city, type, fn) {
